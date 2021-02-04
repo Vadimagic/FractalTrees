@@ -104,13 +104,6 @@ const drawImage = () => {
   }
   init()
   animate()
-
-  window.addEventListener('resize', () => {
-    canvas.width = innerWidth
-    canvas.height = innerHeight
-    ctx.putImageData(image, 100, 100);
-    init()
-  })
 }
 
 const image = new Image()
