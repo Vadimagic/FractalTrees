@@ -10,19 +10,19 @@ myImage.addEventListener('load', () => {
   ctx.drawImage(myImage, 0, 0, canvas.width, canvas.height);
 
   let particlesArray = [];
-  const numberOfParticles = 500;
+  const numberOfParticles = 5000;
 
   class Particle {
     constructor() {
       this.x = Math.random() * canvas.width;
       this.y = 0;
       this.speed = 0;
-      this.velocity = Math.random() * 0.5;
+      this.velocity = Math.random() * 3.5;
       this.size = Math.random() * 1.5 + 1;
     }
 
     update() {
-      this.y+= this.velocity;
+      this.y += this.velocity;
       if ( this.y >= canvas.height) {
         this.x = Math.random() * canvas.width;
         this.y = 0;
