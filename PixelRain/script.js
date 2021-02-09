@@ -20,7 +20,21 @@ myImage.addEventListener('load', () => {
       const red = pixels.data[(y * 4 * pixels.width) + (x * 4)];
       const green = pixels.data[(y * 4 * pixels.width) + (x * 4 + 1)];
       const blue = pixels.data[(y * 4 * pixels.width) + (x * 4 + 2)];
+      const brightness = calculateRelativeBrightness(red, green, blue);
+      const cell = [
+        cellBrightness = brightness
+      ];
+      row.push(cell);
     }
+    mappedImage.push(row);
+  }
+
+  function calculateRelativeBrightness(red, green, blue) {
+    return Math.sqrt(
+      (red * red) * 0.299 +
+      (green * green) * 0.587 +
+      (blue * blue) * 0.114
+    )/100;
   }
 
   class Particle {
@@ -30,10 +44,16 @@ myImage.addEventListener('load', () => {
       this.speed = 0;
       this.velocity = Math.random() * 5;
       this.size = Math.random() * 1.5 + 1;
+      this.position1 = Math.floor(this.y);
+      this.position2 = Math.floor(this.x);
     }
-
+    
     update() {
-      this.y += this.velocity;
+      this.position1 = Math.floor(this.y);
+      this.position2 = Math.floor(this.x);
+      this.speed = mappedImage[this.position1][this.position2][0];
+      let movement = 2.5 - this.speed + this.velocity;
+      this.y += movement;
       if ( this.y >= canvas.height) {
         this.x = Math.random() * canvas.width;
         this.y = 0;
