@@ -6,11 +6,22 @@ canvas.height = window.innerHeight;
 window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+});
+
+const mouse = {
+  x: null,
+  y: null,
+}
+
+canvas.addEventListener('click', (event) => {
+  mouse.x = event.x;
+  mouse.y = event.y;
 })
 
-ctx.fillStyle = 'red';
-ctx.strokeStyle = 'red';
-ctx.lineWidth = 4;
+ctx.fillStyle = '#813';
+// ctx.strokeStyle = 'red';
+// ctx.lineWidth = 4;
 ctx.beginPath();
 ctx.arc(100, 100, 50, 0, Math.PI * 2);
-ctx.stroke();
+ctx.fill();
+// ctx.stroke();
