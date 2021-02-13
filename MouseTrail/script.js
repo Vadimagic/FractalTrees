@@ -16,12 +16,19 @@ const mouse = {
 canvas.addEventListener('click', (event) => {
   mouse.x = event.x;
   mouse.y = event.y;
+  drawCircle();
 })
 
-ctx.fillStyle = '#813';
+function drawCircle() {
+  ctx.fillStyle = '#813';
+  ctx.strokeStyle = 'red';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.arc(mouse.x, mouse.y, 50, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.stroke();
+}
+
 // ctx.strokeStyle = 'red';
 // ctx.lineWidth = 4;
-ctx.beginPath();
-ctx.arc(100, 100, 50, 0, Math.PI * 2);
-ctx.fill();
 // ctx.stroke();
