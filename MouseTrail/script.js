@@ -9,20 +9,18 @@ window.addEventListener('resize', () => {
 });
 
 const mouse = {
-  x: null,
-  y: null,
+  x: undefined,
+  y: undefined,
 }
 
 canvas.addEventListener('click', (event) => {
   mouse.x = event.x;
   mouse.y = event.y;
-  drawCircle();
 })
 
 canvas.addEventListener('mousemove', (event) => {
   mouse.x = event.x;
   mouse.y = event.y;
-  drawCircle();
 })
 
 function drawCircle() {
@@ -38,3 +36,10 @@ function drawCircle() {
 // ctx.strokeStyle = 'red';
 // ctx.lineWidth = 4;
 // ctx.stroke();
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawCircle();
+  requestAnimationFrame(animate);
+}
+animate();
