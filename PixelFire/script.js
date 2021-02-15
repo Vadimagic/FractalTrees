@@ -23,7 +23,8 @@ myImage.addEventListener('load', () => {
       const blue = pixels.data[(y * 4 * pixels.width) + (x * 4 + 2)];
       const brightness = calculateRelativeBrightness(red, green, blue);
       const cell = [
-        cellBrightness = brightness
+        cellBrightness = brightness,
+        cellColor = 'rgb(' + red + ',' + green, + ',' + blue + ')',
       ];
       row.push(cell);
     }
@@ -56,14 +57,14 @@ myImage.addEventListener('load', () => {
       let movement = 2.5 - this.speed + this.velocity;
       this.y += movement;
       if ( this.y >= canvas.height) {
-        this.x = Math.random() * canvas.width;
         this.y = 0;
+        this.x = Math.random() * canvas.width;
       }
     }
 
     draw() {
       ctx.beginPath();
-      ctx.fillStyle = 'white';
+      ctx.fillStyle = mappedImage[this.position1][this.position2][1];
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.fill();
     }
