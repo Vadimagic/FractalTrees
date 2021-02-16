@@ -12,7 +12,7 @@ myImage.addEventListener('load', () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   let particlesArray = [];
-  const numberOfParticles = 4500;
+  const numberOfParticles = 3000;
 
   let mappedImage = [];
   for (let y = 0; y < canvas.height; y++) {
@@ -23,8 +23,8 @@ myImage.addEventListener('load', () => {
       const blue = pixels.data[(y * 4 * pixels.width) + (x * 4 + 2)];
       const brightness = calculateRelativeBrightness(red, green, blue);
       const cell = [
-        cellBrightness = brightness,
-        cellColor = 'rgb(' + red + ',' + green, + ',' + blue + ')',
+          cellBrightness = brightness,
+          cellColor = 'rgb(' + red + ',' + green + ',' + blue + ')'
       ];
       row.push(cell);
     }
