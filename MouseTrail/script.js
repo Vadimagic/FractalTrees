@@ -45,7 +45,7 @@ class Particle {
     if (this.size > 0.2) {
       this.size -= 0.2;
     }
-  }
+  } 
   draw() {
     ctx.fillStyle = this.color;
     // ctx.strokeStyle = '#81f';
