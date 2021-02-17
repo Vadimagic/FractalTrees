@@ -66,7 +66,8 @@ myImage.addEventListener('load', () => {
         this.speed = mappedImage[this.position1][this.position2][0];
       }
       let movement = 2.5 - this.speed + this.velocity;
-      this.angle+= this.speed;
+      this.angle += this.speed;
+      this.size = this.speed * 1.2;
 
       this.y += movement + Math.sin(this.angle) * 2;
       this.x += movement + Math.cos(this.angle) * 2;
@@ -83,10 +84,10 @@ myImage.addEventListener('load', () => {
 
     draw() {
       ctx.beginPath();
-      // if (mappedImage[this.position1] && mappedImage[this.position1][this.position2]) {
-      //   ctx.fillStyle = mappedImage[this.position1][this.position2][1];
-      // }
-      ctx.fillStyle = gradient1;
+      if (mappedImage[this.position1] && mappedImage[this.position1][this.position2]) {
+        ctx.fillStyle = mappedImage[this.position1][this.position2][1];
+      }
+      // ctx.fillStyle = gradient1;
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.fill();
     }
