@@ -20,7 +20,7 @@ myImage.addEventListener('load', () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   let particlesArray = [];
-  const numberOfParticles = 3000;
+  const numberOfParticles = 6000;
 
   let mappedImage = [];
   for (let y = 0; y < canvas.height; y++) {
@@ -67,7 +67,7 @@ myImage.addEventListener('load', () => {
       }
       let movement = 2.5 - this.speed + this.velocity;
       this.angle += this.speed;
-      this.size = this.speed * 1.2;
+      this.size = this.speed * 0.5;
 
       this.y += movement + Math.sin(this.angle) * 2;
       this.x += movement + Math.cos(this.angle) * 2;
@@ -86,9 +86,11 @@ myImage.addEventListener('load', () => {
       ctx.beginPath();
       if (mappedImage[this.position1] && mappedImage[this.position1][this.position2]) {
         ctx.fillStyle = mappedImage[this.position1][this.position2][1];
+        ctx.strokeStyle = mappedImage[this.position1][this.position2][1];
       }
       // ctx.fillStyle = gradient1;
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.strokeRect(this.x, this.y, this.size, this.size);
       ctx.fill();
     }
   }
