@@ -91,7 +91,7 @@ myImage.addEventListener('load', () => {
       // ctx.fillStyle = gradient1;
       // ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.strokeRect(this.x, this.y, this.size, this.size);
-      ctx.fillText('S', this.x, this.y);
+      // ctx.fillText('S', this.x, this.y);
       ctx.fill();
     }
   }
