@@ -5,7 +5,7 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 let particleArray = [];
-const numberOfParticles = 100;
+const numberOfParticles = 1000;
 
 const mouse = {
   x: null,
@@ -45,7 +45,7 @@ class Particle {
       this.weight = Math.random() * 2 - 0.5;
     }
     this.y += this.weight;
-    this.weight += 0.2;
+    this.weight += 0.5;
 
     if (this.y > canvas.height - this.size) {
       this.weight *= -1;
