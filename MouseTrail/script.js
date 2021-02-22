@@ -87,7 +87,7 @@ function animate() {
   // ctx.fillStyle = 'rgba(0,0,0,.02)';
   // ctx.fillRect(0, 0, canvas.width, canvas.height);
   handleParticles();
-  hue += 0.5;
+  hue += 5;
   requestAnimationFrame(animate);
 }
 animate();
