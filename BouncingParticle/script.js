@@ -5,7 +5,7 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 let particleArray = [];
-const numberOfParticles = 100;
+const numberOfParticles = 1000;
 
 const mouse = {
   x: null,
@@ -37,7 +37,7 @@ class Particle {
     ctx.fill();
   }
   update() {
-    this.size -= 0.05;
+    this.size -= 0.1;
     if (this.size < 0) {
       this.x = mouse.x + Math.random() * 20 - 10;
       this.y = mouse.y + Math.random() * 20 - 10;
@@ -47,8 +47,8 @@ class Particle {
     this.y += this.weight;
     this.weight += 0.2;
 
-    if (this.y > canvas.height - this.size) {
-      this.weight *= -1;
+    if ((this.y > canvas.height - this.size) && this.weight > 0) {
+      this.weight *= -0.8;
     }
   }
 }
