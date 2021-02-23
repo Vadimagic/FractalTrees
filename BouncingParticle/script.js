@@ -48,7 +48,7 @@ class Particle {
     this.weight += 0.2;
 
     if (this.y > canvas.height - this.size) {
-      this.weight *= -0.9;
+      this.weight *= -1;
     }
   }
 }
