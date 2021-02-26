@@ -48,7 +48,7 @@ class Particle {
     this.weight += 0.2;
 
     if ((this.y > canvas.height - this.size) && this.weight > 0) {
-      this.weight *= -0.8;
+      this.weight *= -0.7;
     }
   }
 }
@@ -58,7 +58,7 @@ function init() {
   for (let i = 0; i < numberOfParticles; i++) {
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height;
-    const size = Math.random() * 5 + 2;
+    const size = Math.random() * 15 + 15;
     const color = 'rgb(254, 159, 0)';
     const weight = 2;
     particleArray.push(new Particle(x, y, size, color, weight));
