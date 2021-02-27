@@ -5,7 +5,7 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 let particleArray = [];
-const numberOfParticles = 1000;
+const numberOfParticles = 100;
 
 const mouse = {
   x: null,
@@ -88,14 +88,13 @@ function connect() {
       const dy = particleArray[a].y - particleArray[b].y;
       const distance = Math.sqrt(dx * dx + dy * dy);
       if (distance < 200) {
-        opacityValue = 1 - (distance / 10000);
-        ctx.fillStyle('rgba(0,0,0,' + opacityValue + ')');
+        opacityValue = distance < 100 ? 1 : 1 / (distance - 100);
+        ctx.strokeStyle = ('rgba(0,0,0,' + opacityValue + ')');
         ctx.beginPath();
         ctx.lineWidth = 1;
         ctx.moveTo(particleArray[a].x, particleArray[a].y);
         ctx.lineTo(particleArray[b].x, particleArray[b].y);
         ctx.stroke();
-        ctx.closePath();
       }
     }
   }
