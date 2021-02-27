@@ -73,6 +73,7 @@ function animate() {
     particleArray[i].update();
     particleArray[i].draw();
   }
+  connect();
   requestAnimationFrame(animate);
 }
 
