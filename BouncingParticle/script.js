@@ -78,3 +78,24 @@ function animate() {
 
 init();
 animate();
+
+function connect() {
+  let opacityValue = 1;
+  for (let a = 0; a < particleArray.length; a++) {
+    for (let b = 0; b < particleArray.length; b++) {
+      const dx = particlesArray[a].x - particlesArray[b].x;
+      const dy = particlesArray[a].y - particlesArray[b].y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance < 200) {
+        opacityValue = 1 - (distance / 10000);
+        ctx.fillStyle('rgba(0,0,0,' + opacityValue + ')');
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+        ctx.stroke();
+        ctx.closePath();
+      }
+    }
+  }
+}
